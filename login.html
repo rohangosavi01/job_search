@@ -4,26 +4,34 @@
   <meta charset="UTF-8">
   <title>Login | ASU Job Portal</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <script src="js/auth.js" defer></script>
 </head>
 <body>
   <header>
-    <h2>Login to Access the Portal</h2>
+    <img src="assets/images/logo.png" alt="ASU Logo" class="logo">
+    <h1>Job Search</h1>
+    <h3>ENT 301 Class Project</h3>
   </header>
-  <form id="loginForm" onsubmit="return redirectToDashboard()">
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <select id="role">
-      <option value="student.html">Student</option>
-      <option value="employer.html">Employer</option>
-    </select>
-    <button type="submit">Login</button>
-  </form>
+
+  <main>
+    <h2>Logging you in...</h2>
+  </main>
+
+  <footer>
+    <p>Zixuan Yang, Shreeja Kadari, Rohan Gosavi, Tegvir Kular</p>
+  </footer>
+
   <script>
-    function redirectToDashboard() {
-      const rolePage = document.getElementById("role").value;
-      window.location.href = rolePage;
-      return false;
+    // JavaScript to detect the 'role' parameter and redirect accordingly
+    const urlParams = new URLSearchParams(window.location.search);
+    const role = urlParams.get('role');
+
+    if (role === 'student') {
+      window.location.href = 'student.html';
+    } else if (role === 'employer') {
+      window.location.href = 'employer.html';
+    } else {
+      // Fallback message if the role is not specified
+      document.querySelector('main').innerHTML = '<p>Error: Role not specified.</p>';
     }
   </script>
 </body>
