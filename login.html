@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | ASU Job Portal</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="js/auth.js" defer></script>
+</head>
+<body>
+  <header>
+    <h2>Login to Access the Portal</h2>
+  </header>
+  <form id="loginForm" onsubmit="return redirectToDashboard()">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <select id="role">
+      <option value="student.html">Student</option>
+      <option value="employer.html">Employer</option>
+    </select>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    function redirectToDashboard() {
+      const rolePage = document.getElementById("role").value;
+      window.location.href = rolePage;
+      return false;
+    }
+  </script>
+</body>
+</html>
